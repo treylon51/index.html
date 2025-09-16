@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Search Portal</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #f1f1f1;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1a73e8;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1558b0;
+        }
+    </style>
+</head>
+<body>
+    <h2>🔍 Hidden Search Portal</h2>
+    <form id="searchForm">
+        <input type="text" id="query" placeholder="Enter your search..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var query = document.getElementById('query').value;
+            var encodedQuery = encodeURIComponent(query);
+            var platform = 'google'; // Default platform
+
+            // Logic to determine which platform to search
+            if (query.includes('youtube')) {
+                platform = 'youtube';
+            } else if (query.includes('instagram')) {
+                platform = 'instagram';
+            }
+
+            var url = '';
+            switch (platform) {
+                case 'google':
+                    url = 'https://www.google.com/search?q=' + encodedQuery;
+                    break;
+                case 'youtube':
+                    url = 'https://www.youtube.com/results?search_query=' + encodedQuery;
+                    break;
+                case 'instagram':
+                    url = 'https://www.instagram.com/explore/tags/' + encodedQuery + '/';
+                    break;
+            }
+
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
