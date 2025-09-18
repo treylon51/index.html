@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Math - YouTube</title>
-  <link rel="icon" type="image/png" href="https://www.youtube.com/s/desktop/d4bc5fd5/img/favicon_32x32.png"/>
+  <link rel="icon" href="https://www.youtube.com/s/desktop/d4bc5fd5/img/favicon_32x32.png">
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
       background-color: #111;
-      color: #eee;
+      font-family: Arial, sans-serif;
+      color: white;
     }
 
     header {
       background-color: #202020;
       padding: 10px;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     input[type="text"] {
-      width: 60%;
+      width: 50%;
       padding: 10px;
       font-size: 16px;
       border-radius: 5px;
       border: none;
-      margin-right: 5px;
+      outline: none;
     }
 
     button {
+      margin-left: 10px;
       padding: 10px 15px;
       font-size: 16px;
+      background-color: #cc0000;
       border: none;
       border-radius: 5px;
-      background-color: #cc0000;
       color: white;
-      curs
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e60000;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <input type="text" id="input" placeholder="Enter website or search...">
+    <button onclick="go()">Go</button>
+  </header>
+
+  <ifr
